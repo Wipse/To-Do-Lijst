@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <script src="https://kit.fontawesome.com/f5fbe20801.js" crossorigin="anonymous"></script>
+  <div>
+    <form id="addNoteForm" method="POST" action="/todo_list">
+      <input type="text" name="title" placeholder="Title" required>
+      <input type="text" class="todo" name="todo" placeholder="Todo" required>
+      <input type="date" class="shouldhappen" name="shouldhappen" required>
+      <button type="submit">Add Note</button>
+    </form>
+    <% tasks.forEach(tasks => { %>
+      <li id="xxx"> 
+          <h3><%= tasks.title %></h3>
+          <h4><%= tasks.todo %></h4>
+          <p> <span style="font-weight: bold"> Due: </span> &nbsp;<%= tasks.shouldhappen %> </p>
+          <p> <span style="font-weight: bold"> Created on: </span> &nbsp;22:12 || 22.03.2024 </p>
+          <i class="fa-solid fa-trash" onclick="deleteTask('<%= tasks.id %>')">  </i>
+      </li>
+    <% }); %>
+  </div>
+  <script src="script.js"></script>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
